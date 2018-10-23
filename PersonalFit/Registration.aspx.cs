@@ -54,7 +54,7 @@ public partial class Registration : System.Web.UI.Page
 
             queryString = "";
 
-            queryString = "INSERT INTO webapppersonalfit.userregistration (firstname, middlename, lastname, email, phonenumber, username, slowHashSalt)"
+            queryString = "INSERT INTO webapppersonalfit.userregistration (firstname, middlename, lastname, email, phonenumber, username, userpassword, slowHashSalt)"
                         + "VALUES(?firstname, ?middlename, ?lastname, ?email, ?phonenumber, ?uname, ?userpassword, ?slowHashSalt)";
 
             cmd = new MySql.Data.MySqlClient.MySqlCommand(queryString, conn);
@@ -64,7 +64,7 @@ public partial class Registration : System.Web.UI.Page
             cmd.Parameters.AddWithValue("?email", emailTextBox.Text);
             cmd.Parameters.AddWithValue("?phonenumber", phoneNumberTextBox.Text);
             cmd.Parameters.AddWithValue("?uname", usernameTextBox.Text);
-            cmd.Parameters.AddWithValue("?userpasswird", passwordTextBox.Text);
+            cmd.Parameters.AddWithValue("?userpassword", passwordTextBox.Text);
             //cmd.Parameters.AddWithValue("?slowHashSalt", passwordTextBox.Text);
 
             String saltHashReturned = PasswordStorage.CreateHash(passwordTextBox.Text);
