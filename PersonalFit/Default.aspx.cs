@@ -41,11 +41,10 @@ public partial class _Default : System.Web.UI.Page
 
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
-            String query = "SELECT slowHashSalt, firstname, middlename, lastname FROM webappersonalfit.userregistration WHERE username=?uname";
-
+            String query = "SELECT slowHashSalt, firstname, middlename, lastname FROM webAppPersonalFit.userregistration WHERE username=?uname";
+            
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("?uname", usernameTextBox.Text);
-
 
             reader = cmd.ExecuteReader();
 
@@ -70,7 +69,8 @@ public partial class _Default : System.Web.UI.Page
                 for(int i = 0; i < salthashList.Count; i++)
                 {
                     bool validUser = PasswordStorage.VerifyPassword(passwordTextBox.Text, salthashList[i]);
-                    if(validUser == true)
+
+                    if (validUser == true)
                     {
                         Session["UserName"] = namesList[i];
                         Response.BufferOutput = true;
@@ -112,7 +112,7 @@ public partial class _Default : System.Web.UI.Page
             //String query = "SELECT * FROM webapppersonalfit.userregistration WHERE username='" + usernameTextBox.Text +
             //    "' AND userpassword='" + passwordTextBox.Text + "'";
 
-            String query = "SELECT * FROM webappersonalfit.userregistration WHERE username=?uname AND userpassword=?pword";
+            String query = "SELECT * FROM webapppersonalfit.userregistration WHERE username=?uname AND userpassword=?pword";
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
 
             //usernameTextBox.Text => return string => string comparison to against the SQL injection

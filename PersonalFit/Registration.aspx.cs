@@ -69,8 +69,11 @@ public partial class Registration : System.Web.UI.Page
 
             String saltHashReturned = PasswordStorage.CreateHash(passwordTextBox.Text);
             int commaIndex = saltHashReturned.IndexOf(":");
-            String extractedString = saltHashReturned.Substring(0, commaIndex);
-            commaIndex = saltHashReturned.IndexOf(":");
+            String extractedString = saltHashReturned.Substring(commaIndex + 1);
+            commaIndex = extractedString.IndexOf(":");
+            extractedString = saltHashReturned.Substring(commaIndex + 1);
+            commaIndex = extractedString.IndexOf(":");
+
             extractedString = saltHashReturned.Substring(commaIndex + 1);
             commaIndex = extractedString.IndexOf(":");
             String salt = extractedString.Substring(0, commaIndex);
@@ -80,6 +83,7 @@ public partial class Registration : System.Web.UI.Page
             String hash = extractedString;
             //from the first : to the second : is the salt
             //from the second : to the end is the hash
+
             cmd.Parameters.AddWithValue("?slowHashSalt", saltHashReturned);
 
             cmd.ExecuteReader();
