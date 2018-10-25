@@ -27,12 +27,12 @@
 
         <tr>
             <td>body</td>
-            <td><asp:TextBox ID="body" runat="server" Text="Some Text" Width ="99%" Height ="150px" TextMode="MultiLine"></asp:TextBox></td>
+            <td><asp:TextBox ID="body" runat="server" Text="This is the body" Width ="99%" Height ="150px" TextMode="MultiLine"></asp:TextBox></td>
         </tr>
 
         <tr>
             <td></td>
-            <td><asp:Button ID="send" runat="server" Text="Send" /></td>
+            <td><asp:Button ID="send" runat="server" Text="Send" OnClick ="sendEventMethod"/></td>
         </tr>
 
         <tr>
