@@ -1,0 +1,12 @@
+﻿1) Adding code to email GUI so it can send email to verify 
+client's registration
+
+2) Add enough Relational model tables to mySQL database.
+
+3) Hook up the webapp to online server.
+
+4) Client-Sever application
+
+5) Chat applications.
+
+6) GUI developments_Graphic design...
