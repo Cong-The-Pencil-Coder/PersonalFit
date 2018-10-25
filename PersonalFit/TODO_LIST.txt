@@ -10,3 +10,5 @@ that is stored in the database
 5) Chat applications.
 
 6) GUI developments_Graphic design...
+
+7) Set up a default email for the webpage: pengin.studio@gmail.com
