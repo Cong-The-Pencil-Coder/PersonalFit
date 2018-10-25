@@ -1,5 +1,5 @@
-﻿1) Adding code to email GUI so it can send email to verify 
-client's registration
+﻿1) Adding code to connect email verification system to mySQL database so it send email to users
+that is stored in the database
 
 2) Add enough Relational model tables to mySQL database.
 
