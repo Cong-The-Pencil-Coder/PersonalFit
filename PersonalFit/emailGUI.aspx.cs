@@ -31,7 +31,7 @@ public partial class index : System.Web.UI.Page
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
 
-            client.Credentials = new System.Net.NetworkCredential("cong.pham234@gmail.com", "Bin04071989!@");
+            client.Credentials = new System.Net.NetworkCredential("Buzz.LightYear8000@gmail.com", "Xn140839");
             client.Send(message);
             status.Text = "Mail was sent successfully";
         }

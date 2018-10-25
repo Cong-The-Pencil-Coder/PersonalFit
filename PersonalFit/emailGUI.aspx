@@ -17,7 +17,7 @@
 
         <tr>
             <td>from</td>
-            <td><asp:TextBox ID="from" runat="server" Text="cong.pham234@gmail.com" Width ="99%"></asp:TextBox></td>
+            <td><asp:TextBox ID="from" runat="server" Text="Buzz.LightYear8000@gmail.com" Width ="99%"></asp:TextBox></td>
         </tr>
 
         <tr>
