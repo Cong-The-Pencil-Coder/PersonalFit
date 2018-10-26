@@ -88,6 +88,11 @@ public partial class Registration : System.Web.UI.Page
 
             cmd.ExecuteReader();
             conn.Close();
+
+            //Registration is successfully completed
+            String subject = "PersonalFit Verification Email";
+            String body = "Please click the link below to verify your email.";
+            Email.sendEmail(Util.defaultEmail, emailTextBox.Text, subject, body);
         }
     }
 

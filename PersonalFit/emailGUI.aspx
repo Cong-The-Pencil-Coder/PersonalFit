@@ -27,7 +27,7 @@
 
         <tr>
             <td>body</td>
-            <td><asp:TextBox ID="body" runat="server" Text="This is the body" Width ="99%" Height ="150px" TextMode="MultiLine"></asp:TextBox></td>
+            <td><asp:TextBox ID="body" runat="server" Text="This is Cong" Width ="99%" Height ="150px" TextMode="MultiLine"></asp:TextBox></td>
         </tr>
 
         <tr>
