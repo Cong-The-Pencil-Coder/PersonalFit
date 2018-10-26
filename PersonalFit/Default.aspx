@@ -26,7 +26,13 @@
 
     <div id="hitCountValue">0</div>
 
-    <!-- Call out to the HUB using javascript   -->
+    <!-- Call out to the HUB using javascript.
+        The order is important.
+        
+        
+        -->
+
+
     <script src="Scripts/jquery-1.6.4.js"></script>
     <script src="Scripts/jquery.signalR-2.3.0.js"></script>
     <script type="text/javascript">
