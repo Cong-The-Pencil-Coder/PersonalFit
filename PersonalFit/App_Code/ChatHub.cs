@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
@@ -22,11 +23,21 @@ public class ChatHub : Hub
         Clients.All.onRecordHit(_hitCount);
     }
 
-    public void SendMessage(String msg)
+    public Task send(String name, String message)
     {
-        Clients.All.receiveMessage(msg);
+        //Clients.All.receiveMessage(msg);
+        //Clients.All.broadcastMessage(name, message);
+
+        return Clients.All.InvokeAsync("Send", message);
     }
 
+    public void Annouce(String message)
+    {
+        Clients.All.Annouce(message);
+    }
+
+    //Clients.All.receiveMessage(msg);
+    //Clients.All.broadcastMessage(name, message);
     // They are all asynchonous methods
     // Clients.All.doWork();            send msg to all the clients
     // Clients.Caller.doWork();         only want to call back to the client who is caller that called the hub
