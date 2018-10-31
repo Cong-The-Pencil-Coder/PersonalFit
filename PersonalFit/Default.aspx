@@ -32,7 +32,6 @@
         
         -->
 
-
     <script src="Scripts/jquery-1.6.4.js"></script>
     <script src="Scripts/jquery.signalR-2.3.0.js"></script>
     <script type="text/javascript">
