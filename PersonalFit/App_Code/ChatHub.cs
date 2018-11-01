@@ -23,17 +23,22 @@ public class ChatHub : Hub
         Clients.All.onRecordHit(_hitCount);
     }
 
-    public Task send(String name, String message)
+    public void NewContosoChatMessage(string name, string message)
     {
-        //Clients.All.receiveMessage(msg);
-        //Clients.All.broadcastMessage(name, message);
-
-        return Clients.All.InvokeAsync("Send", message);
+        Clients.All.addContosoChatMessageToPage(name, message);
     }
 
-    public void Annouce(String message)
+    public void send(String name, String message)
     {
-        Clients.All.Annouce(message);
+        //Clients.All.receiveMessage(msg);
+        Clients.All.broadcastMessage(name, message);
+
+        //return Clients.All.InvokeAsync("Send", message);
+    }
+
+    public void Annouce(String name, String message)
+    {
+        Clients.All.Annouce(name, message);
     }
 
     //Clients.All.receiveMessage(msg);

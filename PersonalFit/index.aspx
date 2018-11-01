@@ -40,8 +40,7 @@
 
 
     </script>--%>
-
-    <script src="Scripts/SignalRConnection.js"></script>
+    <script src="SignalRConnection.js"></script>
 
 </body>
 </html>
