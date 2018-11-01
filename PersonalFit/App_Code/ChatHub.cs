@@ -8,6 +8,14 @@ using Microsoft.AspNet.SignalR.Hubs;
 
 [HubName("Chat")]
 
+public class ChatMessage
+{
+    public string UserName { get; set; }
+    public string Message { get; set; }
+}
+
+
+
 //hub is a .NET class that inherits from Microsoft.AspNet.SignalR.Hub
 public class ChatHub : Hub
 {
@@ -28,18 +36,29 @@ public class ChatHub : Hub
         Clients.All.addContosoChatMessageToPage(name, message);
     }
 
-    public void send(String name, String message)
+    public void Send(String name, String message)
     {
         //Clients.All.receiveMessage(msg);
-        Clients.All.broadcastMessage(name, message);
-
+        //Clients.All.broadcastMessage(name, message);
+        Clients.All.addNewMessageToPage(name, message);
         //return Clients.All.InvokeAsync("Send", message);
     }
 
-    public void Annouce(String name, String message)
+
+
+
+
+    //public void SendMessage(string name, string message) 
+    //    => Clients.All.SendMessage(new ChatMessage() { UserName = name, Message = message});
+
+
+    public void SendMessage(String Name, String message)
     {
-        Clients.All.Annouce(name, message);
+        Clients.All.SendMessage(Name, message);
     }
+
+
+
 
     //Clients.All.receiveMessage(msg);
     //Clients.All.broadcastMessage(name, message);
