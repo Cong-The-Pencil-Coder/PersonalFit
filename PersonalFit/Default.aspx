@@ -30,36 +30,45 @@
 			<form CssClass="login100-form validate-form" id="form1" runat="server">
 			<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 			<span class="label-input100">Username</span>
-			<asp:TextBox class="input100" ID="usernameTextBox" Text="Enter Username Here" runat ="server" />
-						<input class="input100" type="text" name="username" placeholder="Enter username">
+			<asp:TextBox CssClass="input100" ID="usernameTextBox" Text="Enter Username" runat ="server" />
 						<span class="focus-input100"></span>
 					</div>
+					
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						 <asp:TextBox CssClass="input100" ID="passwordTextBox" Text="Enter Password" runat ="server" />
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+					<div class="container-login100-form-btn">
+						<asp:Button CssClass="login100-form-btn" ID="submitButton" Text ="Login" runat ="server" OnClick="submitButtonEventMethod" />
+					</div>
    
-   
-    <a href ="#">Home</a> | <a href ="Registration.aspx">Registration</a>
-    <!--
-        username:webuser
-        password:Xn140839
-        -->
-    <form id="form1" runat="server">
-        <div>
-            <p>Enter Username</p>
-            <asp:TextBox ID="usernameTextBox" Text="Enter Username Here" runat ="server" />
-            <p>Enter Password</p>
-            <asp:TextBox ID="passwordTextBox" Text="Enter Password" runat ="server" />
 
-            <asp:Button ID="submitButton" Text ="Log In" runat ="server" OnClick="submitButtonEventMethod" />
-        </div>
+
+       
     </form>
-
-    <div id="hitCountValue">0</div>
+</div>
+		</div>
+	</div>
+	
+   <!-- <div id="hitCountValue">0</div> -->
 
     <!-- Call out to the HUB using javascript.
         The order is important.
         
         
         -->
-
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="js/main.js"></script>
     <script src="Scripts/jquery-1.6.4.js"></script>
     <script src="Scripts/jquery.signalR-2.3.0.js"></script>
     <script type="text/javascript">
