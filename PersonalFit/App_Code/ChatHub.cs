@@ -32,9 +32,7 @@ public class ChatHub : Hub
     }
 
     public void NewContosoChatMessage(string name, string message)
-    {
-        Clients.All.addContosoChatMessageToPage(name, message);
-    }
+       => Clients.All.addContosoChatMessageToPage(name, message);
 
     public void Send(String name, String message)
     {

@@ -1,51 +1,10 @@
-﻿//var chatHubProxy = $.connection.chat;
-
-//chatHubProxy.server.SendMessage("Cong", "Hello SignalR!")
-//    .done(function () {
-//        console.log('Invocative SendMessage succeeded');
-//    })
-//    .fail(function (error) {
-//        console.log('Invocative of SendMessage failed. Error: ' + error);
-//    });
-
-//$.connection.hub.start()
-//    .done(function () {
-//        console.log('Now connected, <br/> connection ID = ' + $.connection.id);
-//        console.log("Connected, transport = " + $.connection.hub.transport.name);
-
-
-
-//        chatHubProxy.server.SendMessage("Cong", "Hello SignalR!")
-//            .done(function () {
-//                console.log('Invocative SendMessage succeeded');
-//            })
-//            .fail(function (error) {
-//                console.log('Invocative of SendMessage failed. Error: ' + error);
-//            });
-
-
-
-
-
-
-
-//    })
-//    .fail(function () { console.log('Could not Connected!'); });
-
-//chatHubProxy.client.SendMessage = function (username, message) {
-//    console.log(UserName + ' ' + Message);
-//}
-
-
-
-
-
-
+﻿
 $(function () {
     // Reference the auto-generated proxy for the hub.  
     var chat = $.connection.chatHub;
     // Create a function that the hub can call back to display messages.
-    chat.client.addNewMessageToPage = function (name, message) {
+    chat.client.addNewMessageToPage = function (name, message)
+    {
         // Add the message to the page. 
         $('#discussion').append('<li><strong>' + htmlEncode(name)
             + '</strong>: ' + htmlEncode(message) + '</li>');
@@ -55,8 +14,10 @@ $(function () {
     // Set initial focus to message input box.  
     $('#message').focus();
     // Start the connection.
-    $.connection.hub.start().done(function () {
-        $('#sendmessage').click(function () {
+    $.connection.hub.start().done(function ()
+    {
+        $('#sendmessage').click(function ()
+        {
             // Call the Send method on the hub. 
             chat.server.send($('#displayname').val(), $('#message').val());
             // Clear text box and reset focus for next comment. 
@@ -64,6 +25,7 @@ $(function () {
         });
     });
 });
+
 // This optional function html-encodes messages for display in the page.
 function htmlEncode(value) {
     var encodedValue = $('<div />').text(value).html();
