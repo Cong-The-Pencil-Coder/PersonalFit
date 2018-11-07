@@ -19,15 +19,15 @@ public partial class _Default : System.Web.UI.Page
 
     protected void submitButtonEventMethod(object sender, EventArgs e)
     {
-        if(checkAgainstWhiteList(usernameTextBox.Text) == true &&
-            checkAgainstWhiteList(passwordTextBox.Text) == true)
+        if(checkAgainstWhiteList(usernameTextBox.Value) == true &&
+            checkAgainstWhiteList(passwordTextBox.Value) == true)
         {
             //DoSQLQuery();
             LoginWithPasswordHashFunction();
         }
         else
         {
-            passwordTextBox.Text = "Does not pass white List Test";
+            passwordTextBox.Value = "Does not pass white List Test";
         }
     }
 
@@ -44,7 +44,7 @@ public partial class _Default : System.Web.UI.Page
             String query = "SELECT slowHashSalt, firstname, middlename, lastname FROM webAppPersonalFit.userregistration WHERE username=?uname";
             
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("?uname", usernameTextBox.Text);
+            cmd.Parameters.AddWithValue("?uname", usernameTextBox.Value);
 
             reader = cmd.ExecuteReader();
 
@@ -68,7 +68,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 for(int i = 0; i < salthashList.Count; i++)
                 {
-                    bool validUser = PasswordStorage.VerifyPassword(passwordTextBox.Text, salthashList[i]);
+                    bool validUser = PasswordStorage.VerifyPassword(passwordTextBox.Value, salthashList[i]);
 
                     if (validUser == true)
                     {
@@ -78,7 +78,7 @@ public partial class _Default : System.Web.UI.Page
                     }
                     else
                     {
-                        passwordTextBox.Text = "User not authenticated";
+                        passwordTextBox.Value = "User not authenticated";
                     }
 
                 }
@@ -116,8 +116,8 @@ public partial class _Default : System.Web.UI.Page
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
 
             //usernameTextBox.Text => return string => string comparison to against the SQL injection
-            cmd.Parameters.AddWithValue("?uname", usernameTextBox.Text);
-            cmd.Parameters.AddWithValue("?pword", passwordTextBox.Text);
+            cmd.Parameters.AddWithValue("?uname", usernameTextBox.Value);
+            cmd.Parameters.AddWithValue("?pword", passwordTextBox.Value);
 
             reader = cmd.ExecuteReader();
             name = "";
@@ -133,14 +133,14 @@ public partial class _Default : System.Web.UI.Page
             }
             else
             {
-                passwordTextBox.Text = "Invalid User";
+                passwordTextBox.Value = "Invalid User";
             }
             reader.Close();
             conn.Close();
         }
         catch(Exception e)
         {
-            passwordTextBox.Text = e.ToString();
+            passwordTextBox.Value = e.ToString();
         }
     }
 }
