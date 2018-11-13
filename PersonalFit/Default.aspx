@@ -19,7 +19,7 @@
             <p>Password</p>
             <input id="passwordTextBox" type="password" name="" placeholder ="Enter Password" runat="server"/><br />
             <asp:Button type="button" CssClass="butt" ID="submitButton" Text ="Login" runat ="server" OnClick="submitButtonEventMethod" />
-            <a href="#">Lost your password?</a><br />
+            <a href="#">Lost your password?</a><br/>
             <a href="Registration.aspx">Do not have an account?</a>
         </form>
     </div>

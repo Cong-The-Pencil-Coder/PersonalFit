@@ -12,7 +12,7 @@ public partial class LoggedIn : System.Web.UI.Page
         String name = (String)Session["UserName"];
         userLabel.Text = name;
     }
-
+    
     protected void logoutEventHandler(object sender, EventArgs e)
     {
         Session["UserName"] = null;
