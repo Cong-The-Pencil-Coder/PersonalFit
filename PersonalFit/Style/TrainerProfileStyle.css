@@ -1,1 +1,73 @@
-﻿
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.profilePic {
+    width: 320px;
+    height: 420px;
+    color: #fff;
+    top: 5%;
+    left: 0%;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.UsernameLabel {
+    color: white;
+    font: x-large;
+    top: 52%;
+    left: 25%;
+    position: absolute;
+    padding: 70px 30px;
+    font-size: x-large
+}
+
+.IntroLabel {
+    color: white;
+    top: 60%;
+    left: 25%;
+    position: absolute;
+    padding: 70px 30px;
+    font-size: medium;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 50px);
+}
+
+.trainer-span {
+    position: relative;
+    top: 100%;
+    left: 25%;
+}
+
+.info_section {
+    top: 0%;
+    left: 40%;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.BioText {
+    color: white;
+    width: 500px;
+    height: 500px;
+    border-style: none;
+    text-align: left;
+    padding: 0.4em;
+    opacity: 0;
+    padding-bottom: 190px;
+}
+
+.btn-warning {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+    padding: 10px 24px;
+}
