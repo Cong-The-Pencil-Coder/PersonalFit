@@ -29,9 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link fa fa-bars" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"></a>
-                    <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
+                <li class="nav-item dropdown" >
+                   <a class="nav-link fa fa-bars" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true" style="margin-left:68rem;" ></a>
+                    <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);margin-left:60rem;">
                         <a class="dropdown-item" href="#">Profile</a>
                         <a class="dropdown-item" href="#">Register</a>
                         <a class="dropdown-item" href="#">Something else here</a>
@@ -64,7 +64,7 @@
 
     <div class="info_section" runat="server">
         <form id="frm" runat="server">
-            <asp:TextBox CssClass="BioText" id="txt" runat="server" Text="testing" Disabled="disabled"/><br /><br />
+            <asp:TextBox CssClass="BioText" id="txt" runat="server" Text="testing" Disabled="disabled"/>Lorem ipsum<br /><br />
             <asp:Button Cssclass="btn btn-warning" type="button" ID="BioModifyButton" runat="server" Text="Modify" />
         </form>
     </div>
