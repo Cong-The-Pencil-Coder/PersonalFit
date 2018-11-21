@@ -59,7 +59,6 @@
         <span class="badge badge-pill badge-info fitness-span trainer-span">fitness</span>
         <span class="badge badge-pill badge-light trainer-span">Light</span>
         <span class="badge badge-pill badge-dark trainer-span">Dark</span>
-
     </div>
 
     <div class="info_section" runat="server">

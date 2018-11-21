@@ -29,11 +29,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link fa fa-bars" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"></a>
-                    <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
-                        <a class="dropdown-item" href="#">Profile</a>
+                </li>btn-warning
                         <a class="dropdown-item" href="#">Register</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                         <div class="dropdown-divider"></div>
@@ -48,6 +44,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <b /><asp:Table CssClass="prog-catalog" id="ProgCatalogTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Left"></asp:Table>
+            
+            <div class="card bg-light mb-3 holder" style="max-width: 20rem;">
+                  <div class="card-header">Header</div>
+                  <div class="card-body">
+                    <h4 class="card-title">Light card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="Default.aspx" class="btn btn-warning">Go to Google</a>
+                  </div>
+            </div>
+
+            <asp:PlaceHolder ID="MyPlaceholder" runat="server"></asp:PlaceHolder>
         </div>
     </form>
 </body>

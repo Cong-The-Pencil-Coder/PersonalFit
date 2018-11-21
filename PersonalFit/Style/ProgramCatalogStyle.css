@@ -1,2 +1,6 @@
 ﻿body {
 }
+
+.holder {
+    max-width: 20rem;
+}

@@ -1,2 +1,63 @@
 ﻿body {
+
 }
+
+.prog-label {
+    position: absolute;
+    top: 7%;
+    left: 40%;
+    font-size: 30px;
+}
+
+.DescriptionTextBox{
+    background-color: white;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    padding: 125px 525px;
+}
+
+.div1 {
+    position: relative;
+    top: 9%;
+    left: 0%;
+}
+
+.exercise-table {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    display: inline;
+    border: none;
+    width: 10%;
+    padding: 400px 0px;
+}
+
+.meal-table {
+    position: absolute;
+    top: 70%;
+    left: 47%;
+    display: inline;
+    border: none;
+    width: 50%;
+    padding: 400px 0px;
+}
+
+.explan-label {
+    position: absolute;
+    top: 10%;
+    left: 12%;
+    font-size: 25px;
+    padding: 360px 0px;
+}
+
+.mealplan-label {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    font-size: 25px;
+    padding: 360px 0px;
+}
+

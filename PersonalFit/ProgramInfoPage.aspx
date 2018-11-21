@@ -7,7 +7,7 @@
     <title>Program Profile Page</title>
     
     <link href="~/Style/boostrap-superhero.css" rel="stylesheet" />
-    <%--<link href="Style/ProgramInfoPageStyle.css" rel="stylesheet" />--%>
+    <link href="Style/ProgramInfoPageStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Personal Fit</a>
@@ -41,19 +41,22 @@
                 </li>
             </ul>
         </div>
-        
     </nav>
      
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Label ID="Label1" runat="server" Text="Program Name"></asp:Label>
-        <asp:Label ID="Label2" runat="server" Text="Price"></asp:Label>
-        <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
-
-        <asp:Table id="ExerciseTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Center"></asp:Table>
-          
+        <b /><asp:Label CssClass="prog-label" ID="progLabel" runat="server" Text="Program Name"></asp:Label>
+        <asp:TextBox CssClass="DescriptionTextBox" ID="DescriptionTextBox" runat="server" Disabled="disabled"></asp:TextBox>
+        <div class="div1">
+            <asp:Label CssClass="explan-label" ID="exerplanLabel" runat="server" Text="Exercise Plan"></asp:Label>
+            <b /><asp:Table CssClass="exercise-table" id="ExerciseTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Left"></asp:Table> 
+            
+            <asp:Label CssClass="mealplan-label" ID="mealplanLabel" runat="server" Text="Meal Plan"></asp:Label>
+            <b /><asp:Table CssClass="meal-table" id="MealTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Center"></asp:Table>  
+        </div>
     </form>
+    
 </body>
 </html>
