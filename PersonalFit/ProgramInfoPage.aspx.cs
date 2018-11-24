@@ -32,7 +32,8 @@ public partial class ProgramInfoPage : System.Web.UI.Page
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
 
-            String query = "SELECT * FROM webapppersonalfit.exercises";
+            String prog_name = (String)Session["prog_name"];
+            String query = "SELECT * FROM webapppersonalfit.exercises AS E WHERE E.progname=" +"'" + prog_name + "'";
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             reader = cmd.ExecuteReader();
             String content = "";
@@ -108,7 +109,8 @@ public partial class ProgramInfoPage : System.Web.UI.Page
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
 
-            String query = "SELECT * FROM webapppersonalfit.meals";
+            String prog_name = (String)Session["prog_name"];
+            String query = "SELECT * FROM webapppersonalfit.meals AS M WHERE M.progname=" + "'" + prog_name + "'";
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             reader = cmd.ExecuteReader();
             String content = "";

@@ -44,14 +44,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <b /><asp:Table CssClass="prog-catalog" id="ProgCatalogTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Left"></asp:Table>
-            
             <div class="card bg-light mb-3 holder" style="max-width: 20rem;">
                   <div class="card-header">Header</div>
                   <div class="card-body">
                     <h4 class="card-title">Light card title</h4>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="Default.aspx" class="btn btn-warning">Go to Google</a>
+                    <asp:Button class="btn btn-warning" ID="SubmitButton" runat="server" Text="Button" OnClick="SubmitEventHandler"/>
                   </div>
             </div>
 

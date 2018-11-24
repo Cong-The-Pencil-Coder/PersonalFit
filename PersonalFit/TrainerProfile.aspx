@@ -64,7 +64,7 @@
     <div class="info_section" runat="server">
         <form id="frm" runat="server">
             <asp:TextBox CssClass="BioText" id="txt" runat="server" Text="testing" Disabled="disabled"/>Lorem ipsum<br /><br />
-            <asp:Button Cssclass="btn btn-warning" type="button" ID="BioModifyButton" runat="server" Text="Modify" />
+            <%--<asp:Button Cssclass="btn btn-warning" type="button" ID="BioModifyButton" runat="server" Text="Modify" />--%>
         </form>
     </div>
 </body>
