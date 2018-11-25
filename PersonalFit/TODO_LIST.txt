@@ -1,14 +1,6 @@
-﻿1) Adding code to connect email verification system to mySQL database so it send email to users
-that is stored in the database
-
-2) Add enough Relational model tables to mySQL database.
-
-3) Hook up the webapp to online server.
-
-4) Client-Sever application
-
-5) Chat applications.
-
-6) GUI developments_Graphic design...
-
-7) Set up a default email for the webpage: pengin.studio@gmail.com
+﻿1)Make
+	i) Program creation page
+	ii) remake the registration page
+	iii) Chat page
+2) Connect trainerprofilepage to trainercatalog
+3) connect trainerprofilepage to programcatalog
