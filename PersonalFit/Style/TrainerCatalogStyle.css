@@ -1,2 +1,15 @@
 ﻿body {
 }
+
+.holder{
+    width: 500px;
+    height: 500px;
+}
+
+.avatar {
+    position: relative;
+    left: 25%;
+    width: 175px;
+    height: 175px;
+    border-radius: 100%;
+}

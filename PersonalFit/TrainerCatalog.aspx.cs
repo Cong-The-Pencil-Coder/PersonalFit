@@ -47,8 +47,7 @@ public partial class TrainerCatalog : System.Web.UI.Page
                 String trainerName = reader.GetString(reader.GetOrdinal("name"));
                 String cardTitle = reader.GetString(reader.GetOrdinal("name"));
                 String cardContent = reader.GetString(reader.GetOrdinal("short_intro"));
-                //String picUrl = reader.GetString(reader.GetOrdinal("url_pic"));
-                String picUrl = "";
+                String picUrl = reader.GetString(reader.GetOrdinal("url_pic"));
                 addCardOntoPlaceHolder(trainerID, trainerName, cardTitle, cardContent, picUrl);
             }
             reader.Close();
@@ -62,16 +61,16 @@ public partial class TrainerCatalog : System.Web.UI.Page
 
     private void addCardOntoPlaceHolder(String trainerID, String trainerName, String cardTitle, String cardContent, String picUrl)
     {
-        String divTag = "<div class=\"card bg-light mb-3 holder\" style=\"max-width: 20rem; float: left; margin: 3em;\"> " +
-                            "<div class=\"card-header\">" + trainerName + "</div>" +
-                                "<div class=\"card-body\">" +
+        String divTag = "<div class=\"card bg-light mb-3 holder\" style=\"max-width: 20rem; float: left; margin: 3em;\"><br /> " +
+                            "<img class=\"avatar\" src=\"" + picUrl + "\" />" + 
+                                    "<div class=\"card-body\">" +
                                     "<h4 class=\"card-title\">" + cardTitle + "</h4>" +
                                     "<p class=\"card-text\">" + cardContent + "</p>";
 
         Button submitButton = new Button();
         submitButton.Click += new EventHandler(this.SubmitEventHandler);
         submitButton.CssClass = "btn btn-warning";
-        submitButton.Text = "read more >>";
+        submitButton.Text = "info";
         submitButton.ID = trainerID;
         MyPlaceholder.Controls.Add(new Literal() { Text = divTag });
         this.addSpecialty(trainerID);
@@ -82,13 +81,13 @@ public partial class TrainerCatalog : System.Web.UI.Page
 
     private void addSpecialty(String trainerID)
     {
-        connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
-        conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
+        String connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
+        MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
         conn.Open();
 
         String query = "SELECT * FROM webapppersonalfit.trainerspecialty as TS WHERE TS.trainerID=" + trainerID + ";";
-        cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
-        reader = cmd.ExecuteReader();
+        MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
+        MySql.Data.MySqlClient.MySqlDataReader reader = cmd.ExecuteReader();
         String primary = "badge-primary";
         String secondary = "badge-secondary";
         String success = "badge-success";
