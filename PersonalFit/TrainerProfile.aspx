@@ -51,21 +51,12 @@
         <strong><asp:Label CssClass="UsernameLabel" runat="server" ID="Username" ></asp:Label></strong>
         <asp:Label CssClass="IntroLabel" ID="short_intro" runat="server">short intro</asp:Label>
         <asp:PlaceHolder ID="SpecialtySpanHolder" runat="server"></asp:PlaceHolder>
-
-        <span class="badge badge-pill badge-primary gym-span trainer-span">gym</span>
-        <span class="badge badge-pill badge-secondary yoga-span trainer-span">yoga</span>
-        <span class="badge badge-pill badge-success trainer-span">bounding</span>
-        <span class="badge badge-pill badge-danger crossfit-span trainer-span">crossfit</span>
-        <span class="badge badge-pill badge-warning diet-span trainer-span">diet</span>
-        <span class="badge badge-pill badge-info fitness-span trainer-span">fitness</span>
-        <span class="badge badge-pill badge-light trainer-span">Light</span>
-        <span class="badge badge-pill badge-dark trainer-span">Dark</span>
     </div>
 
     <div class="info_section" runat="server">
         <form id="frm" runat="server">
-            <asp:Label id="long_intro" runat="server" Text="testing"/><br /><br />
-            <%--<asp:Button Cssclass="btn btn-warning" type="button" ID="BioModifyButton" runat="server" Text="Modify" />--%>
+            <asp:Label CssClass="BioText" id="long_intro" runat="server" Text="testing"/><br /><br />
+
         </form>
     </div>
 </body>

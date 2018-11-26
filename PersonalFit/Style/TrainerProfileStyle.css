@@ -56,14 +56,13 @@
     padding: 70px 30px;
 }
 .BioText {
+    position: absolute;
+    top: 63%;
     color: white;
     width: 500px;
     height: 500px;
     border-style: none;
     text-align: left;
-    padding: 0.4em;
-    opacity: 0;
-    padding-bottom: 190px;
 }
 
 .btn-warning {

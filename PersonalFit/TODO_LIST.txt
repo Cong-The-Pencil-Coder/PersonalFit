@@ -1,6 +1,6 @@
 ﻿1)Make
 	i) Program creation page
-	ii) remake the registration page
+	ii) remake the registration page (option to become a trainer or not)
 	iii) Chat page
 2) Connect trainerprofilepage to trainercatalog
 3) connect trainerprofilepage to programcatalog
