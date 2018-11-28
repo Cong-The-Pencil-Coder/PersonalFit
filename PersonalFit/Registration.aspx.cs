@@ -10,6 +10,8 @@ public partial class Registration : System.Web.UI.Page
     MySql.Data.MySqlClient.MySqlConnection conn;
     MySql.Data.MySqlClient.MySqlCommand cmd;
     String queryString;
+
+    String outputMessage;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -25,27 +27,63 @@ public partial class Registration : System.Web.UI.Page
         bool methodStatus = true;
 
         if(InputValidation.ValidatePhoneNumber(phoneNumberTextBox.Text) == false)
+        {
             methodStatus = false;
+            phoneNumberTextBox.CssClass = "form-control is-invalid";
+            phoneNumberTextBoxLabel.Text = "invalid phone number";
+            phoneNumberTextBoxLabel.CssClass = "form-control-label text-danger";
+
+        }
 
         if (InputValidation.ValidateName(firstNameTextBox.Text) == false)
+        {
             methodStatus = false;
+            firstNameTextBox.CssClass = "form-control is-invalid";
+            firstNameTextBoxLabel.Text = "invalid first name";
+            firstNameTextBoxLabel.CssClass = "form-control-label text-danger";
+        }
 
         if (InputValidation.ValidateName(middleNameTextBox.Text) == false)
+        {
             methodStatus = false;
+            middleNameTextBox.CssClass = "form-control is-invalid";
+            middleNameTextBoxLabel.Text = "invalid middle name";
+            middleNameTextBoxLabel.CssClass = "form-control-label text-danger";
+        }
 
         if (InputValidation.ValidateName(lastNameTextBox.Text) == false)
+        {
             methodStatus = false;
+            lastNameTextBox.CssClass = "form-control is-invalid";
+            lastNameTextBoxLabel.Text = "invalid last name";
+            lastNameTextBoxLabel.CssClass = "form-control-label text-danger";
+        }
 
         if (InputValidation.ValidateUserInput(usernameTextBox.Text) == false)
+        {
             methodStatus = false;
+            usernameTextBox.CssClass = "form-control is-invalid";
+            usernameTextBoxLabel.Text = "invalid username";
+            usernameTextBoxLabel.CssClass = "form-control-label text-danger";
+        }
 
         if (InputValidation.ValidateUserInput(passwordTextBox.Text) == false)
+        {
             methodStatus = false;
+            passwordTextBox.CssClass = "form-control is-invalid";
+            passwordTextBoxLabel.Text = "invalid password";
+            passwordTextBoxLabel.CssClass = "form-control-label text-danger";
+        }
 
         if (InputValidation.ValidateEmail(emailTextBox.Text) == false)
+        {
             methodStatus = false;
+            emailTextBox.CssClass = "form-control is-invalid";
+            emailTextBoxLabel.Text = "invalid email address";
+            emailTextBoxLabel.CssClass = "form-control-label text-danger";
+        }
 
-        if(methodStatus == true)
+        if (methodStatus == true)
         {
             String connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 

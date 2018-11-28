@@ -61,10 +61,10 @@ public partial class TrainerCatalog : System.Web.UI.Page
 
     private void addCardOntoPlaceHolder(String trainerID, String trainerName, String cardTitle, String cardContent, String picUrl)
     {
-        String divTag = "<div class=\"card bg-light mb-3 holder\" style=\"max-width: 20rem; float: left; margin: 3em;\"><br /> " +
+        String divTag = "<div class=\"card bg-light mb-3 holder\" style=\"max-width: 20%; float: left; margin: 2.25em;\"><br /> " +
                             "<img class=\"avatar\" src=\"" + picUrl + "\" />" + 
                                     "<div class=\"card-body\">" +
-                                    "<h4 class=\"card-title\">" + cardTitle + "</h4>" +
+                                    "<h4 class=\"card-title\" style=\"text-align: center;\">" + cardTitle + "</h4>" +
                                     "<p class=\"card-text\">" + cardContent + "</p>";
 
         Button submitButton = new Button();

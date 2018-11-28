@@ -36,8 +36,8 @@ public partial class ProgramCatalog : System.Web.UI.Page
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
-
-            String query = "SELECT * FROM webapppersonalfit.program";
+            String trainerID = (String)Session["trainerID"];
+            String query = "SELECT * FROM webapppersonalfit.program WHERE trainer_ID=" + trainerID + ";";
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             reader = cmd.ExecuteReader();
 

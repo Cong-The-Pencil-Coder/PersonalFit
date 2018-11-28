@@ -5,34 +5,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Registration</title>
+    <link href="Style/boostrap-superhero.css" rel="stylesheet" />
+    <link href="Style/RegistrationStyle.css" rel="stylesheet" />
 </head>
+
 <body>
-    <p>This is the registration page</p>
     <a href ="Default.aspx">Home</a> | <a href ="#">Registration</a>
     <form id="form1" runat="server">
-        <div>
+        <p class="header">PersonalFit Registration</p><b/>
+        <div class="InfoSection">
             <p>Enter First Name</p>
-            <asp:TextBox ID="firstNameTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="firstNameTextBox" Text ="" runat="server" PlaceHolder="First Name"/>
+            <asp:Label CssClass="" ID="firstNameTextBoxLabel" runat="server"></asp:Label>
+            <br/>
 
             <p>Enter Middle Name</p>
-            <asp:TextBox ID="middleNameTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="middleNameTextBox" Text ="" runat="server" PlaceHolder="Middle Name"/>
+            <asp:Label ID="middleNameTextBoxLabel" runat="server" Text=""></asp:Label>
+            <br/>
 
             <p>Enter Last Name</p>
-            <asp:TextBox ID="lastNameTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="lastNameTextBox" Text ="" runat="server" PlaceHolder="Last Name"/>
+            <asp:Label ID="lastNameTextBoxLabel" runat="server" Text=""></asp:Label>
+            <br/>
 
             <p>Enter Email</p>
-            <asp:TextBox ID="emailTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="emailTextBox" Text ="" runat="server" PlaceHolder="Email"/>
+            <asp:Label ID="emailTextBoxLabel" runat="server" Text=""></asp:Label>
+            <br/>
 
             <p>Enter Phone Number</p>
-            <asp:TextBox ID="phoneNumberTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="phoneNumberTextBox" Text ="" runat="server" PlaceHolder="Phone Number"/>
+            <asp:Label ID="phoneNumberTextBoxLabel" runat="server" Text=""></asp:Label>
+            <br/>
 
             <p>Create Username</p>
-            <asp:TextBox ID="usernameTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="usernameTextBox" Text ="" runat="server" PlaceHolder="Username"/>
+            <asp:Label ID="usernameTextBoxLabel" runat="server" Text=""></asp:Label>
+            <br/>
 
             <p>Create Password</p>
-            <asp:TextBox ID="passwordTextBox" Text ="" runat="server" />
+            <asp:TextBox ID="passwordTextBox" Text ="" runat="server" PlaceHolder="Password"/>
+            <asp:Label ID="passwordTextBoxLabel" runat="server" Text=""></asp:Label>
 
-            <asp:Button ID="regButton" Text="REGISTER"  runat="server" OnClick="registerEventMethod"/>
+            <br/>
+            <br/>
+            <asp:Button CssClass="btn btn-success" ID="regButton" Text="REGISTER"  runat="server" OnClick="registerEventMethod"/>
         </div>
     </form>
 </body>
