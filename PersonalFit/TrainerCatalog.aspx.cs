@@ -13,9 +13,22 @@ public partial class TrainerCatalog : System.Web.UI.Page
     String connectionString;
     private Style thColorStyle = new Style();
     private Style trColorSytle = new Style();
+    private String userID;
+    private int isPT;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (PreviousPage != null)
+        {
+            userID = PreviousPage.userID;
+            isPT = PreviousPage.isPT;
 
+            if(isPT != 0)
+            {
+                String liTag = "<li class=\"nav - item\"><a class=\"nav-link\" href=\"#\">Create Program</a></li>";
+                TrainerPlaceHolder.Controls.Add(new Literal() { Text = liTag });
+            }
+        }
         loadDataToExerciseTable();
     }
 

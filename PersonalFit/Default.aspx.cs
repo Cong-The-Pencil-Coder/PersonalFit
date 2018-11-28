@@ -12,6 +12,9 @@ public partial class _Default : System.Web.UI.Page
     MySql.Data.MySqlClient.MySqlDataReader reader;
     String connectionString;
     String name;
+
+    public int isPT { get; set; }
+    public String userID { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -34,14 +37,13 @@ public partial class _Default : System.Web.UI.Page
     private void LoginWithPasswordHashFunction()
     {
         String saltHash = null;
-        String userID="";
         try
         {
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
-            String query = "SELECT slowHashSalt, firstname, middlename, lastname FROM webAppPersonalFit.userregistration WHERE username=?uname";
+            String query = "SELECT userID, slowHashSalt, firstname, middlename, lastname, isPT FROM webAppPersonalFit.userregistration WHERE username=?uname";
             
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("?uname", usernameTextBox.Value);
@@ -54,7 +56,8 @@ public partial class _Default : System.Web.UI.Page
                 //Console.WriteLine(saltHashes);
                 saltHash = saltHashes;
 
-                userID = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
+                userID = "" + reader.GetInt16(reader.GetOrdinal("userID"));
+                isPT = Convert.ToInt32(reader.GetByte(reader.GetOrdinal("isPT")));
             }
             else
             {
@@ -68,7 +71,7 @@ public partial class _Default : System.Web.UI.Page
                 {
                     Session[userID] = userID;
                     Response.BufferOutput = true;
-                    Response.Redirect("TrainerCatalog.aspx", false);
+                    Server.Transfer("TrainerCatalog.aspx", true);
                 }
                 else
                 {
@@ -122,7 +125,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 Session["UserName"] = name;
                 Response.BufferOutput = true;
-                Response.Redirect("LoggedIn.aspx", false);
+                Server.Transfer("LoggedIn.aspx", true);
             }
             else
             {

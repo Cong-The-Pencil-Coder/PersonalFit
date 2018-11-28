@@ -15,7 +15,6 @@ public partial class ProgramCatalog : System.Web.UI.Page
     private Style trColorSytle = new Style();
     protected void Page_Load(object sender, EventArgs e)
     {
- 
         loadDataToExerciseTable();
     }
 
