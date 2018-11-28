@@ -5,19 +5,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home</title>
-<link rel="stylesheet" type="text/css" href="Style/LoginStyle.css" />
+    <link href="Style/boostrap-superhero.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="Style/LoginStyle.css" />
 </head>
 
 <body>
-    
+    <p class="header">PersonalFit</p>
     <div class="loginbox">
         <img src="img_src/avt.png" class="avatar"/>
         <h1>Login Here</h1>
         <form id="form1" runat="server">
             <p>Username</p>
             <input id="usernameTextBox" type="text" name="" placeholder="Enter Username" runat="server"/>
+
             <p>Password</p>
             <input id="passwordTextBox" type="password" name="" placeholder ="Enter Password" runat="server"/><br />
+            <asp:Label CssClass="form-control-label text-danger" ID="ValidationTextBoxLabel" runat="server"></asp:Label>
+
             <asp:Button type="button" CssClass="butt" ID="submitButton" Text ="Login" runat ="server" OnClick="submitButtonEventMethod" />
             <a href="#">Lost your password?</a><br/>
             <a href="Registration.aspx">Do not have an account?</a>

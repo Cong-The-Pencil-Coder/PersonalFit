@@ -12,7 +12,7 @@
 <body>
     <a href ="Default.aspx">Home</a> | <a href ="#">Registration</a>
     <form id="form1" runat="server">
-        <p class="header">PersonalFit Registration</p><b/>
+        <p class="header">PersonalFit Registration</p>
         <div class="InfoSection">
             <p>Enter First Name</p>
             <asp:TextBox ID="firstNameTextBox" Text ="" runat="server" PlaceHolder="First Name"/>

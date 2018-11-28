@@ -1,7 +1,6 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    background: url('../img_src/cool1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -9,12 +8,20 @@
     font-family: sans-serif;
 }
 
-.loginbox{
+.header {
+    position: absolute;
+    left: 33%;
+    top: 5%;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.loginbox {
     width: 320px;
     height: 420px;
-    background: #000;
+    background: #4E5D6C;
     color: #fff;
-    top: 50%;
+    top: 60%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);

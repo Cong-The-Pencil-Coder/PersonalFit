@@ -27,14 +27,14 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            passwordTextBox.Value = "Does not pass white List Test";
+            ValidationTextBoxLabel.Text = "Invalid Username or Password.";
         }
     }
 
     private void LoginWithPasswordHashFunction()
     {
-        List<String> salthashList = null;
-        List<String> namesList = null;
+        String saltHash = null;
+        String fullname="";
         try
         {
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
@@ -48,40 +48,34 @@ public partial class _Default : System.Web.UI.Page
 
             reader = cmd.ExecuteReader();
 
-            while (reader.HasRows && reader.Read())
+            if(reader.HasRows && reader.Read())
             {
-                if (salthashList == null)
-                {
-                    salthashList = new List<String>();
-                    namesList = new List<String>();
-                }
-
                 String saltHashes = reader.GetString(reader.GetOrdinal("slowHashSalt"));
                 //Console.WriteLine(saltHashes);
-                salthashList.Add(saltHashes);
+                saltHash = saltHashes;
 
-                String fullname = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
-                namesList.Add(fullname);
+                fullname = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
             }
-
-            if(salthashList != null)
+            else
             {
-                for(int i = 0; i < salthashList.Count; i++)
-                {
-                    bool validUser = PasswordStorage.VerifyPassword(passwordTextBox.Value, salthashList[i]);
+                ValidationTextBoxLabel.Text = "Invalid Username or Password.";
+            }
+            if(saltHash != null)
+            {
+                bool validUser = PasswordStorage.VerifyPassword(passwordTextBox.Value, saltHash);
 
-                    if (validUser == true)
-                    {
-                        Session["UserName"] = namesList[i];
-                        Response.BufferOutput = true;
-                        Response.Redirect("LoggedIn.aspx", false);
-                    }
-                    else
-                    {
-                        passwordTextBox.Value = "User not authenticated";
-                    }
+                if (validUser == true)
+                {
+                    Session["UserName"] = fullname;
+                    Response.BufferOutput = true;
+                    Response.Redirect("TrainerCatalog.aspx", false);
+                }
+                else
+                {
+                    ValidationTextBoxLabel.Text = "Invalid Username or Password.";
                 }
             }
+            ValidationTextBoxLabel.Text = "Invalid Username or Password.";
             reader.Close();
             conn.Close();
         }
