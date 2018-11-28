@@ -34,7 +34,7 @@ public partial class _Default : System.Web.UI.Page
     private void LoginWithPasswordHashFunction()
     {
         String saltHash = null;
-        String fullname="";
+        String userID="";
         try
         {
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
@@ -54,7 +54,7 @@ public partial class _Default : System.Web.UI.Page
                 //Console.WriteLine(saltHashes);
                 saltHash = saltHashes;
 
-                fullname = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
+                userID = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
             }
             else
             {
@@ -66,7 +66,7 @@ public partial class _Default : System.Web.UI.Page
 
                 if (validUser == true)
                 {
-                    Session["UserName"] = fullname;
+                    Session[userID] = userID;
                     Response.BufferOutput = true;
                     Response.Redirect("TrainerCatalog.aspx", false);
                 }

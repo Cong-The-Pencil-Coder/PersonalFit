@@ -48,6 +48,11 @@
             <asp:TextBox ID="passwordTextBox" Text ="" runat="server" PlaceHolder="Password"/>
             <asp:Label ID="passwordTextBoxLabel" runat="server" Text=""></asp:Label>
 
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" checked="" runat="server"/>
+                <label class="custom-control-label" for="customCheck1">Do you want to become an online personal trainer?</label>
+            </div>
+
             <br/>
             <br/>
             <asp:Button CssClass="btn btn-success" ID="regButton" Text="REGISTER"  runat="server" OnClick="registerEventMethod"/>

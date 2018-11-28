@@ -18,26 +18,29 @@
 
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">About</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Trainer Catalog<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Programs</a>
+                    <a class="nav-link" href="#">Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Community</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">Store</a>
                 </li>
                 <li class="nav-item dropdown">
                    <a class="nav-link fa fa-bars" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true" style="margin-left:68rem;"></a>
                     <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px); margin-left:60rem;">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Register</a>
+                        <a class="dropdown-item" href="#">Home</a>
+                        <a class="dropdown-item" href="#">My Programs</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log out</a>
+                        <a class="dropdown-item" href="Default.aspx">Log out</a>
                     </div>
                 </li>
             </ul>
