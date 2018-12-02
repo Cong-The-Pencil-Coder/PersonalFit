@@ -14,32 +14,27 @@ public class ChatMessage
     public string Message { get; set; }
 }
 
+
+
 //hub is a .NET class that inherits from Microsoft.AspNet.SignalR.Hub
 public class ChatHub : Hub
 {
-
-    public void Send(String username, String callername, String message)
+    static List<UserConnection> uList = new List<UserConnection>();
+    public void Send(String who, String message)
     {
-        Clients.Caller.addNewMessageToPage(callername, message);
-        Clients.User(username).addNewMessageToPage(message);
+        var user = uList.Where(o => o.UserName == who);
+        if (user.Any())
+        {
+            Clients.Client(user.First().ConnectionID).addNewMessageToPage(who, message);
+        }
+    }
+
+    public override Task OnConnected()
+    {
+        UserConnection user = new UserConnection();
+        user.ConnectionID = Context.ConnectionId;
+        user.UserName = Context.QueryString["username"];
+        uList.Add(user);
+        return base.OnConnected();
     }
 }
-    //Clients.All.receiveMessage(msg);
-    //Clients.All.broadcastMessage(name, message);
-    // They are all asynchonous methods
-    // Clients.All.doWork();            send msg to all the clients
-    // Clients.Caller.doWork();         only want to call back to the client who is caller that called the hub
-    // Clients.Others.doWork();         Call every body but yourself.
-    // Clients.Users("Brady").doWork(); Target one specific user.
-    //public override System.Threading.Tasks.Task OnConnected()
-    //{
-    //    return base.OnConnected();
-    //}
-
-    //public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
-    //{
-    //    _hitCount -= 1;
-    //    Clients.All.onRecordHit(_hitCount);
-    //    return base.OnDisconnected(stopCalled);
-    //}
-

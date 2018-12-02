@@ -57,7 +57,7 @@
     <div class="info_section" runat="server">
         <form id="frm" runat="server">
             <asp:Label CssClass="BioText" id="long_intro" runat="server" Text="testing"/><br /><br />
-
+            <asp:Button CssClass="btn btn-info" ID="MessageButton" runat="server" Text="Message" OnClick="MessageButtonEventHandler"/>
         </form>
     </div>
 </body>

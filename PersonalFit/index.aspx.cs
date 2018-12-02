@@ -11,4 +11,13 @@ public partial class index : System.Web.UI.Page
     {
 
     }
+
+    //public String GetUserId()
+    //{
+    //    if (PreviousPage != null)
+    //    {
+    //        return "" + PreviousPage.userID;
+    //    }
+    //    return null;
+    //}
 }

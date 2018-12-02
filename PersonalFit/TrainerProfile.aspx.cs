@@ -11,6 +11,9 @@ public partial class TrainerProfile : System.Web.UI.Page
     MySql.Data.MySqlClient.MySqlCommand cmd;
     MySql.Data.MySqlClient.MySqlDataReader reader;
     String connectionString;
+
+    public String userID { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -18,7 +21,7 @@ public partial class TrainerProfile : System.Web.UI.Page
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
-            String userID = (String)Session["trainerID"];
+            userID = (String)Session["trainerID"];
             String query = "SELECT * FROM webapppersonalfit.trainer AS T WHERE T.userID="+ userID +";";
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             reader = cmd.ExecuteReader();
@@ -37,6 +40,12 @@ public partial class TrainerProfile : System.Web.UI.Page
         {
             //
         }
+    }
+
+    public void MessageButtonEventHandler(object sender, EventArgs e)
+    {
+        Response.BufferOutput = true;
+        Server.Transfer("index.aspx", true);
     }
 
     private void addSpanOntoPlaceHolder()

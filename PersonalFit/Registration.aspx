@@ -72,4 +72,5 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'finley'@'%'
 mysql> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
 mysql> GRANT RELOAD,PROCESS ON *.* TO 'admin'@'localhost';
 mysql> CREATE USER 'dummy'@'localhost';
-                                                                        -->
+                                                
+    -->

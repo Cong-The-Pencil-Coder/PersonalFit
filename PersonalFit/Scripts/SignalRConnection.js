@@ -10,10 +10,10 @@ $(function () {
             + '</strong>: ' + htmlEncode(message) + '</li>');
     };
     // Get the user name and store it to prepend to messages.
-    $('#callername').val(prompt('Enter your name:', ''));
+    $('#displayname').val(prompt('Enter your name:', ''));
 
-    // Get the user name and store it to prepend to messages.
-    $('#username').val(prompt('Enter your username who you want to chat with:', ''));
+    //pass user name as querystring during connecting from client side
+    $.connection.hub.qs = { 'username': $('#displayname').val() };
 
     // Set initial focus to message input box.  
     $('#message').focus();
@@ -23,7 +23,7 @@ $(function () {
         $('#sendmessage').click(function ()
         {
             // Call the Send method on the hub. 
-            chat.server.send($('#username').val(), $('#callername').val(), $('#message').val());
+            chat.server.send($('#displayname').val(), $('#message').val());
             // Clear text box and reset focus for next comment. 
             $('#message').val('').focus();
         });
