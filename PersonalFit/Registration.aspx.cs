@@ -97,8 +97,10 @@ public partial class Registration : System.Web.UI.Page
                         + "VALUES(?firstname, ?middlename, ?lastname, ?email, ?phonenumber, ?uname, ?userpassword, ?slowHashSalt, TRUE)";
             }
             else
-                queryString = "INSERT INTO webapppersonalfit.userregistration (firstname, middlename, lastname, email, phonenumber, username, userpassword, slowHashSalt)"
+            {
+                queryString = "INSERT INTO webapppersonalfit.userregistration (firstname, middlename, lastname, email, phonenumber, username, userpassword, slowHashSalt, isPT)"
                         + "VALUES(?firstname, ?middlename, ?lastname, ?email, ?phonenumber, ?uname, ?userpassword, ?slowHashSalt, FALSE)";
+            }
 
             cmd = new MySql.Data.MySqlClient.MySqlCommand(queryString, conn);
             cmd.Parameters.AddWithValue("?firstname", firstNameTextBox.Text);

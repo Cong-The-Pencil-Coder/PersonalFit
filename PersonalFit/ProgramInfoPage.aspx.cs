@@ -66,12 +66,12 @@ public partial class ProgramInfoPage : System.Web.UI.Page
                         r.Cells.Add(c);
 
                         c = new TableCell();
-                        content = reader.GetString(reader.GetOrdinal("#sets"));
+                        content = reader.GetString(reader.GetOrdinal("sets"));
                         c.Controls.Add(new LiteralControl(content));
                         r.Cells.Add(c);
 
                         c = new TableCell();
-                        content = reader.GetString(reader.GetOrdinal("#reps"));
+                        content = reader.GetString(reader.GetOrdinal("reps"));
                         c.Controls.Add(new LiteralControl(content));
                         r.Cells.Add(c);
                         break;
@@ -171,5 +171,10 @@ public partial class ProgramInfoPage : System.Web.UI.Page
         {
             //passwordTextBox.Value = e.ToString();
         }
+    }
+
+    protected void RegisterButtonEventHandler(object sender, EventArgs e)
+    {
+        Response.Redirect("TransactionPage.aspx");
     }
 }

@@ -48,15 +48,16 @@
 <body>
     <form id="form1" runat="server">
         <b /><asp:Label CssClass="prog-label" ID="progLabel" runat="server" Text="Program Name"></asp:Label>
-        <asp:TextBox CssClass="DescriptionTextBox" ID="DescriptionTextBox" runat="server" Disabled="disabled"></asp:TextBox>
+        
         <div class="div1">
             <asp:Label CssClass="explan-label" ID="exerplanLabel" runat="server" Text="Exercise Plan"></asp:Label>
             <b /><asp:Table CssClass="exercise-table" id="ExerciseTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Left"></asp:Table> 
-            
+
             <asp:Label CssClass="mealplan-label" ID="mealplanLabel" runat="server" Text="Meal Plan"></asp:Label>
-            <b /><asp:Table CssClass="meal-table" id="MealTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Center"></asp:Table>  
+            <b /><asp:Table CssClass="meal-table" id="MealTable" runat="server" CellPadding="10" GridLines="Both" HorizontalAlign="Center"></asp:Table>
+            <asp:Button CssClass="registerbutton" ID="registerbutton" runat="server" Text="Register Program" OnClick="RegisterButtonEventHandler"/>
         </div>
     </form>
-    
+
 </body>
 </html>

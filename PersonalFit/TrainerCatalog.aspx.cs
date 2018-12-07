@@ -21,11 +21,19 @@ public partial class TrainerCatalog : System.Web.UI.Page
         if (PreviousPage != null)
         {
             userID = PreviousPage.userID;
+            Session["UserID"] = userID;
+            Response.BufferOutput = true;
             isPT = PreviousPage.isPT;
 
             if(isPT != 0)
             {
-                String liTag = "<li class=\"nav - item\"><a class=\"nav-link\" href=\"#\">Create Program</a></li>";
+                String liTag = "<li class=\"nav - item\"><a class=\"nav-link\" href=\"ProgramCreationPage.aspx\">Add_Prog</a></li>"+
+                               "<li class=\"nav - item\"><a class=\"nav-link\" href=\"ClientListPage.aspx\">Client_List</a></li>";
+                TrainerPlaceHolder.Controls.Add(new Literal() { Text = liTag });
+            }
+            else
+            {
+                String liTag = "<li class=\"nav - item\"><a class=\"nav-link\" href=\"ClientRegisteredProgramList.aspx\">Prog_List</a></li>";
                 TrainerPlaceHolder.Controls.Add(new Literal() { Text = liTag });
             }
         }
