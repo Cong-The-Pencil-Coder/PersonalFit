@@ -11,7 +11,7 @@ public partial class TrainerProfile : System.Web.UI.Page
     MySql.Data.MySqlClient.MySqlCommand cmd;
     MySql.Data.MySqlClient.MySqlDataReader reader;
     String connectionString;
-
+    String imageurl;
     public String userID { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -31,10 +31,11 @@ public partial class TrainerProfile : System.Web.UI.Page
                 Username.Text = reader.GetString(reader.GetOrdinal("name"));
                 short_intro.Text = reader.GetString(reader.GetOrdinal("short_intro"));
                 long_intro.Text = reader.GetString(reader.GetOrdinal("long_intro"));
+                avatar.ImageUrl = reader.GetString(reader.GetOrdinal("url_pic"));
             }
             addSpanOntoPlaceHolder();
             conn.Close();
-            reader.Close();
+            reader.Close(); 
         }
         catch (Exception ex)
         {

@@ -36,8 +36,9 @@
 								<tr class="row100 head">
 									<th class="cell100 column1">Program Name</th>
 									<th class="cell100 column2">Type</th>
-									<th class="cell100 column3">Hours</th>
+									<th class="cell100 column3">Duration</th>
 									<th class="cell100 column4">Client Name</th>
+<%--                                    <th class="cell100 column5">Customize_Prog</th>--%>
 								</tr>
 							</thead>
 						</table>

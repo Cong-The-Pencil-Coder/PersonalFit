@@ -48,7 +48,7 @@
 
 <body>
     <div class="profilePic">
-        <asp:Image src="img_src/avt.png" Cssclass="avatar" ID="avatar" runat="server" />
+        <asp:Image Cssclass="avatar" ID="avatar" runat="server" />
         <strong><asp:Label CssClass="UsernameLabel" runat="server" ID="Username" ></asp:Label></strong>
         <asp:Label CssClass="IntroLabel" ID="short_intro" runat="server">short intro</asp:Label>
         <asp:PlaceHolder ID="SpecialtySpanHolder" runat="server"></asp:PlaceHolder>

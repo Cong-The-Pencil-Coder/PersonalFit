@@ -11,77 +11,72 @@ public partial class ClientListPage : System.Web.UI.Page
     MySql.Data.MySqlClient.MySqlCommand cmd;
     MySql.Data.MySqlClient.MySqlDataReader reader;
     String connectionString;
+    List<Button> btnList = new List<Button>();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        LoadTable();
     }
 
     protected void LoadTable()
     {
-        int numrows = 10;
-        int numcells = 3;
-        thColorStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#5cb85c");
-        trColorSytle.BackColor = System.Drawing.ColorTranslator.FromHtml("#343a40");
         try
         {
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebAppConnString"].ToString();
             conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
             conn.Open();
 
-            String prog_name = (String)Session["prog_name"];
-            String query = "SELECT * FROM webapppersonalfit.meals AS M WHERE M.progname=" + "'" + prog_name + "'";
+            String trainerid = (String)Session["UserID"];
+            String query = "SELECT * FROM webapppersonalfit.userregistration AS UR webapppersonalfit.program AS P, webapppersonalfit.trainerclient AS TC " +
+                            "WHERE TC.trainerid=" + "'" + trainerid + "'" +
+                            "AND P.prog_name=TC.progname " +
+                            "AND UR.userID=TC.clientid;";
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
             reader = cmd.ExecuteReader();
             String content = "";
-            bool breakcond = false;
-            for (int i = 0; i < numrows; i++)
+
+            while(true)
             {
                 TableRow r = new TableRow();
-                for (int j = 0; j < numcells; j++)
+                r.CssClass = "row100 body";
+                TableCell c = new TableCell();
+                c.CssClass = "cell100 column1";
+                if (reader.HasRows && reader.Read())
                 {
-                    TableCell c = new TableCell();
-                    if (i == 0 && j == 0)
-                    {
-                        c.Controls.Add(new LiteralControl("Name"));
-                        c.ApplyStyle(thColorStyle);
-                    }
-                    else if (i == 0 && j == 1)
-                    {
-                        c.Controls.Add(new LiteralControl("Time"));
-                        c.ApplyStyle(thColorStyle);
-                    }
-                    else if (i == 0 && j == 2)
-                    {
-                        c.Controls.Add(new LiteralControl("Meal"));
-                        c.ApplyStyle(thColorStyle);
-                    }
-                    else if (reader.HasRows && reader.Read())
-                    {
-                        content = reader.GetString(reader.GetOrdinal("name"));
-                        c.Controls.Add(new LiteralControl(content));
-                        r.Cells.Add(c);
-
-                        c = new TableCell();
-                        content = reader.GetString(reader.GetOrdinal("time"));
-                        c.Controls.Add(new LiteralControl(content));
-                        r.Cells.Add(c);
-
-                        c = new TableCell();
-                        content = reader.GetString(reader.GetOrdinal("meals"));
-                        c.Controls.Add(new LiteralControl(content));
-                        r.Cells.Add(c);
-                        break;
-                    }
-                    else
-                    {
-                        breakcond = true;
-                        break;
-                    }
+                    content = reader.GetString(reader.GetOrdinal("progname"));
+                    c.Controls.Add(new LiteralControl(content));
                     r.Cells.Add(c);
+
+                    c = new TableCell();
+                    c.CssClass = "cell100 column2";
+                    content = reader.GetString(reader.GetOrdinal("focus"));
+                    c.Controls.Add(new LiteralControl(content));
+                    r.Cells.Add(c);
+
+                    c = new TableCell();
+                    c.CssClass = "cell100 column3";
+                    content = reader.GetString(reader.GetOrdinal("duration"));
+                    c.Controls.Add(new LiteralControl(content));
+                    r.Cells.Add(c);
+
+                    c = new TableCell();
+                    c.CssClass = "cell100 column4";
+                    content = reader.GetString(reader.GetOrdinal("firstname")) + " " + reader.GetString(reader.GetOrdinal("lastname"));
+                    c.Controls.Add(new LiteralControl(content));
+                    r.Cells.Add(c);
+
+                    //c = new TableCell();
+                    //c.CssClass = "cell100 column5";
+                    //content = reader.GetString(reader.GetOrdinal("userID"));
+                    //Button btn = new Button();
+                    //btn.ID = content;
+                    //btnList.Add(btn);
+                    //c.Controls.Add(btn);
+                    //r.Cells.Add(c);
                 }
-                MealTable.Rows.Add(r);
-                if (breakcond)
+                else
                     break;
+                Table1.Rows.Add(r);
             }
             reader.Close();
             conn.Close();

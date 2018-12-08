@@ -28,7 +28,8 @@ public partial class TrainerCatalog : System.Web.UI.Page
             if(isPT != 0)
             {
                 String liTag = "<li class=\"nav - item\"><a class=\"nav-link\" href=\"ProgramCreationPage.aspx\">Add_Prog</a></li>"+
-                               "<li class=\"nav - item\"><a class=\"nav-link\" href=\"ClientListPage.aspx\">Client_List</a></li>";
+                               "<li class=\"nav - item\"><a class=\"nav-link\" href=\"ClientListPage.aspx\">Client_List</a></li>" +
+                               "<li class=\"nav - item\"><a class=\"nav-link\" href=\"TrainerProfileCreationPage.aspx\">Create_Profile</a></li>";
                 TrainerPlaceHolder.Controls.Add(new Literal() { Text = liTag });
             }
             else
